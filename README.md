@@ -1,4 +1,4 @@
-# Diary
+# Planner
 
 ## Funkcjonalności:
 - [ ] rejestracja
