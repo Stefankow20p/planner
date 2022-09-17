@@ -1,5 +1,6 @@
 * {
   font-family: Tahoma, sans-serif;
+  color: #fafafa;
 }
 
 body {
@@ -9,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: #202027;
 }
 
 header {
@@ -16,12 +18,29 @@ header {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  background-color: #f0f;
+  background-color: #18181F;
   width: 100%;
 }
 
 main {
-  background-color: #f00;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #202027;
   flex-grow: 1;
+  width: 100%;
+}
+main .main {
+  flex-grow: 1;
+  align-self: stretch;
+  background-color: #29292F;
+  margin: 15px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+footer {
+  background-color: #29292F;
   width: 100%;
 }

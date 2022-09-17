@@ -1,5 +1,13 @@
+$background : #202027;
+$header : #18181F;
+$second-color : #29292F;
+$third-color : #1E1E25;
+
+$font-main-color : #fafafa;
+
 *{
     font-family: Tahoma, sans-serif;
+    color: $font-main-color;
 }
 body{
     margin: 0;
@@ -8,7 +16,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
+    background-color: $background;
 }
 
 header{
@@ -16,11 +24,28 @@ header{
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    background-color: #f0f;
+    background-color: $header;
     width: 100%;
 }
 main{
-    background-color: #f00;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: $background;
     flex-grow: 1;
+    width: 100%;
+    .main{
+        flex-grow: 1;
+        align-self: stretch;
+        background-color: $second-color;
+        margin: 15px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+}
+
+footer{
+    background-color: $second-color;
     width: 100%;
 }
