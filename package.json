@@ -1,0 +1,24 @@
+{
+  "name": "planner",
+  "version": "1.0.0",
+  "description": "- [ ] rejestracja\r - [ ] logowanie\r - [ ] przechowywania danych logowania w unikalnych, generowanych tokenach w plikach cookies\r - [ ] dodawania aktywności do dni\r   - [ ] ikony\r   - [ ] kolorowanie \r - [ ] podaktywności\r - [ ] tworzenie presetów\r - [ ] tworzenie ulubionych kolorów",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N1ktt/planner.git"
+  },
+  "author": "N1ktt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N1ktt/planner/issues"
+  },
+  "homepage": "https://github.com/N1ktt/planner#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "sass": "^1.54.9"
+  }
+}
