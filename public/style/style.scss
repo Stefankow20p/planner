@@ -2,6 +2,8 @@ $background : #202027;
 $header : #18181F;
 $second-color : #29292F;
 $third-color : #1E1E25;
+$info-color : #0096FF;
+$show-more-color : #D9D9D9;
 
 $font-main-color : #fafafa;
 
@@ -36,12 +38,36 @@ main{
     flex-grow: 1;
     width: 100%;
     .main{
+        
         flex-grow: 1;
         align-self: stretch;
+
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: center;
+        row-gap: 15px;
+        column-gap: 5px;
+
         background-color: $second-color;
         margin: 15px;
         border-radius: 10px;
         padding: 10px;
+        .day{
+            background-color: $header;
+            border: 3px solid $font-main-color;
+            height: fit-content;
+            flex-grow: 1;
+            width: 350px;
+            border-radius: 15px;
+            padding-bottom: 10px;
+            .icon-show-more{
+                background-color: $show-more-color;
+            }
+            .icon-edit{
+                background-color: $info-color;
+            }
+        }
     }
 }
 
