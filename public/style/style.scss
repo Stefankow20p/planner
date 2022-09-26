@@ -47,7 +47,7 @@ main{
         align-items: flex-start;
         justify-content: center;
         row-gap: 15px;
-        column-gap: 5px;
+        column-gap: 10px;
 
         background-color: $second-color;
         margin: 15px;
@@ -57,16 +57,74 @@ main{
             background-color: $header;
             border: 3px solid $font-main-color;
             height: fit-content;
-            flex-grow: 1;
             width: 350px;
             border-radius: 15px;
             padding-bottom: 10px;
-            .icon-show-more{
-                background-color: $show-more-color;
+            .header{
+                height: 70px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                align-items: center;
+
+                .date{
+                    margin: 0 8px;
+                    font-size: 36px;
+                }
+                .title{
+                    flex-grow: 1;
+                    font-size: 20px;
+                    text-align: center;
+                    
+                }
+                .icon{
+                    margin: 0 8px;
+                    border-radius: 5px;
+                    transition: 0.5s;
+                }
+                .icon:hover{
+                    transform: scale(115%);
+                    transition: 0.5s;
+                }
+                .icon-show-more{
+                    background-color: $show-more-color;
+                }
+                .icon-edit{
+                    background-color: $info-color;
+                }
             }
-            .icon-edit{
-                background-color: $info-color;
+            .records{
+                width: 100%;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: flex-start;
+                align-items: center;
+                .record:nth-child(2n+0){
+                    background-color: $third-color;
+                }
+                .record:nth-child(2n+1){
+                    background-color: $second-color;
+                }
+                .record{
+                    height: 70px;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    .time{
+                        margin: 0 8px;
+                        font-size: 24px;
+                    }
+                    .name{
+                        font-size: 18px;
+                        flex-grow: 1;
+                        // text-align: center;
+                    }
+                }
             }
+            
+            
         }
     }
 }
