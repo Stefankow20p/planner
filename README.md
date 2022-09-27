@@ -11,3 +11,7 @@
 - [ ] tworzenie presetów
 - [ ] tworzenie ulubionych kolorów
 
+### Baza danych
+- username maks 30 znaków
+- hasła hashowane SHA2_256, Hashbytes('SHA2_256', 'text tu')
+- tokeny

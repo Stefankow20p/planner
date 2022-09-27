@@ -1,0 +1,14 @@
+DROP DATABASE if EXISTS planner;
+CREATE DATABASE planner;
+use planner
+
+CREATE TABLE Users(
+    idUser INT NOT NULL AUTO_INRCEMENT PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    passwordHash BINARY(32) NOT NULL
+);
+
+CREATE TABLE Tokens{
+    idToken INT NOT NULL AUTO_INRCEMENT PRIMARY KEY,
+    tokenValue INT NO NULL,
+};
