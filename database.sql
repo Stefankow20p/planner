@@ -5,7 +5,7 @@ use planner;
 CREATE TABLE Users(
     idUser INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
-    passwordHash BINARY(32) NOT NULL
+    passwordHash BINARY(64) NOT NULL
 );
 
 CREATE TABLE Tokens(
@@ -99,3 +99,6 @@ CREATE TABLE DiaryDaysYoutube(
     FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay),
     FOREIGN KEY (idFilm) REFERENCES Youtube(idFilm)
 );
+
+
+INSERT INTO users (users.username, users.passwordHash) VALUES ("Testowy username", SHA2('Maria',256));

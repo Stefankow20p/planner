@@ -34,10 +34,84 @@ main {
 main .main {
   flex-grow: 1;
   align-self: stretch;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+  row-gap: 15px;
+  column-gap: 10px;
   background-color: #29292F;
   margin: 15px;
   border-radius: 10px;
   padding: 10px;
+}
+main .main .day {
+  background-color: #18181F;
+  border: 3px solid #fafafa;
+  height: fit-content;
+  width: 350px;
+  border-radius: 15px;
+  padding-bottom: 10px;
+}
+main .main .day .header {
+  height: 70px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+main .main .day .header .date {
+  margin: 0 8px;
+  font-size: 36px;
+}
+main .main .day .header .title {
+  flex-grow: 1;
+  font-size: 20px;
+  text-align: center;
+}
+main .main .day .header .icon {
+  margin: 0 8px;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+main .main .day .header .icon:hover {
+  transform: scale(115%);
+  transition: 0.5s;
+}
+main .main .day .header .icon-show-more {
+  background-color: #D9D9D9;
+}
+main .main .day .header .icon-edit {
+  background-color: #0096FF;
+}
+main .main .day .records {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+main .main .day .records .record:nth-child(2n+0) {
+  background-color: #1E1E25;
+}
+main .main .day .records .record:nth-child(2n+1) {
+  background-color: #29292F;
+}
+main .main .day .records .record {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+main .main .day .records .record .time {
+  margin: 0 8px;
+  font-size: 24px;
+}
+main .main .day .records .record .name {
+  font-size: 18px;
+  flex-grow: 1;
 }
 
 footer {

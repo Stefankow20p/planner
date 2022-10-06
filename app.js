@@ -3,6 +3,8 @@ console.log("server runs")
 const express = require("express")
 const sass = require('sass')
 const fs = require('fs')
+const mysql = require('mysql2')
+const crypto = require('crypto')
 //compiling and saving SASS to CSS
 sass.compileAsync("public/style/style.scss").then((result,err)=>{
     if(result){
@@ -25,3 +27,21 @@ app.listen(port, () => console.log(`Listening at port ${port}`))
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+
+//database pool
+const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    database: 'planner',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+})
+
+pool.query(
+    'SELECT * FROM users',
+    (err, res) =>{
+      console.log(res[0].passwordHash); 
+    }
+  );

@@ -12,5 +12,5 @@
 
 ### Baza danych
 - username maks 30 znaków
-- hasła hashowane SHA2_256, Hashbytes('SHA2_256', 'text tu')
+- hasła hashowane SHA2_256 
 - tokeny
