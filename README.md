@@ -7,9 +7,8 @@
 - [ ] dodawania aktywności do dni
   - [ ] ikony
   - [ ] kolorowanie 
-- [ ] podaktywności
 - [ ] tworzenie presetów
-- [ ] tworzenie ulubionych kolorów
+
 
 ### Baza danych
 - username maks 30 znaków
