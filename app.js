@@ -39,9 +39,12 @@ const pool = mysql.createPool({
     queueLimit: 0
 })
 
+
+//test query to compare passwords
 pool.query(
     'SELECT * FROM users',
     (err, res) =>{
-      console.log(res[0].passwordHash); 
+        console.log(res[0].passwordHash.toString('utf-8'))
+        console.log(crypto.createHash("sha256").update("Maria").digest().toString('hex'))
     }
-  );
+)
