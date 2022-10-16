@@ -118,3 +118,26 @@ footer {
   background-color: #29292F;
   width: 100%;
 }
+
+.log-reg-panel {
+  flex-grow: 1;
+  align-self: stretch;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #29292F;
+  margin: 15px;
+  border-radius: 10px;
+}
+.log-reg-panel .choice {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+.log-reg-panel .choice #login, .log-reg-panel .choice #register {
+  width: 50%;
+}
+.log-reg-panel .choice #login h3, .log-reg-panel .choice #register h3 {
+  text-align: center;
+}

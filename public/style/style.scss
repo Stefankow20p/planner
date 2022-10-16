@@ -133,3 +133,36 @@ footer{
     background-color: $second-color;
     width: 100%;
 }
+
+.log-reg-panel{
+    flex-grow: 1;
+    align-self: stretch;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: $second-color;
+    margin: 15px;
+    border-radius: 10px;
+
+    .choice{
+        display: flex;
+        flex-flow: row nowrap;
+
+        width: 100%;
+        #login, #register{
+            width: 50%;
+            h3{
+                text-align: center;
+            }
+        }
+        #login{
+
+        }
+        #register{
+
+        }
+    }
+}
