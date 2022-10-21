@@ -145,15 +145,30 @@ footer{
 
     background-color: $second-color;
     margin: 15px;
+    padding: 5px;
     border-radius: 10px;
 
     .choice{
         display: flex;
         flex-flow: row nowrap;
+        justify-content: center;
 
-        width: 100%;
+        width: 1000px;
+        // .not-choosen:hover, .not-choosen:hover + .not-choosen,.not-choosen:hover ~ .triangle{
+        .not-choosen:hover ~ .not-choosen,.not-choosen:hover{
+            cursor: pointer;
+            background-color: $info-color;
+        }
+        .choosen{
+            background-color: $third-color;
+            
+        }
+        
+        
         #login, #register{
-            width: 50%;
+            max-width: 400px;
+            flex-grow: 1;
+
             h3{
                 text-align: center;
             }
@@ -161,8 +176,55 @@ footer{
         #login{
 
         }
+        .triangle{
+            div{
+                border-top: solid 0px transparent;
+                border-left: solid 0px transparent;
+                border-right: solid 200px transparent;
+                border-bottom: 100px solid $third-color;
+            }
+            
+        }
         #register{
 
         }
     }
+    .log, .reg{
+        width: 1000px;
+        background-color: $third-color;
+
+        input[type="text"]{
+            color: #000;
+            border: 0 solid #fff;
+        }
+        input[type="text"]:focus-visible{
+            outline: 3px solid $show-more-color;
+        }
+        
+    }
+}
+
+@keyframes on-register-traingle-flip{
+    0%{
+
+    }
+    100%{
+        transform: scaleX(-1);
+    }
+}
+.on-register-traingle-flip{
+    animation-name: on-register-traingle-flip;
+    animation-fill-mode: forwards;
+}
+@keyframes on-login-traingle-flip{
+    0%{
+
+    }
+    100%{
+        transform: scaleX(1);
+    }
+}
+.on-login-traingle-flip{
+    animation-name: on-login-traingle-flip;
+    animation-fill-mode: forwards;
 }
