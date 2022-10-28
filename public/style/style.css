@@ -137,7 +137,7 @@ footer {
   justify-content: center;
   width: 1000px;
 }
-.log-reg-panel .choice .not-choosen:hover ~ .not-choosen, .log-reg-panel .choice .not-choosen:hover {
+.log-reg-panel .choice .not-choosen:hover ~ .not-choosen, .log-reg-panel .choice .not-choosen:hover, .log-reg-panel .choice .not-choosen:has(~ .not-choosen:hover) {
   cursor: pointer;
   background-color: #0096FF;
 }
@@ -145,11 +145,15 @@ footer {
   background-color: #1E1E25;
 }
 .log-reg-panel .choice #login, .log-reg-panel .choice #register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 400px;
   flex-grow: 1;
 }
 .log-reg-panel .choice #login h3, .log-reg-panel .choice #register h3 {
   text-align: center;
+  font-size: x-large;
 }
 .log-reg-panel .choice .triangle div {
   border-top: solid 0px transparent;
@@ -160,13 +164,32 @@ footer {
 .log-reg-panel .log, .log-reg-panel .reg {
   width: 1000px;
   background-color: #1E1E25;
+  padding-top: 50px;
+  padding-bottom: 100px;
 }
-.log-reg-panel .log input[type=text], .log-reg-panel .reg input[type=text] {
+.log-reg-panel .log label, .log-reg-panel .reg label {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.log-reg-panel .log label h4, .log-reg-panel .reg label h4 {
+  font-size: 1.4em;
+}
+.log-reg-panel .log input[type=text], .log-reg-panel .log input[type=password], .log-reg-panel .reg input[type=text], .log-reg-panel .reg input[type=password] {
+  font-size: larger;
   color: #000;
   border: 0 solid #fff;
 }
-.log-reg-panel .log input[type=text]:focus-visible, .log-reg-panel .reg input[type=text]:focus-visible {
+.log-reg-panel .log input[type=text]:focus-visible, .log-reg-panel .log input[type=password]:focus-visible, .log-reg-panel .reg input[type=text]:focus-visible, .log-reg-panel .reg input[type=password]:focus-visible {
   outline: 3px solid #D9D9D9;
+}
+.log-reg-panel .log input[type=button], .log-reg-panel .reg input[type=button] {
+  color: #000;
+}
+.log-reg-panel .log input[type=button]:hover, .log-reg-panel .reg input[type=button]:hover {
+  cursor: pointer;
 }
 
 @keyframes on-register-traingle-flip {

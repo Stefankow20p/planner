@@ -12,7 +12,7 @@ sass.compileAsync("public/style/style.scss").then((result,err)=>{
             if (err){
                 return console.error(err)
             }else{
-                return console.log("SASS saved to CSS")
+                return console.log("SASS compiled")
             }
         })
     }else{
