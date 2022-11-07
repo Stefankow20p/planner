@@ -154,7 +154,7 @@ footer{
         justify-content: center;
 
         width: 1000px;
-        .not-choosen:hover ~ .not-choosen,.not-choosen:hover, .not-choosen:has(~ .not-choosen:hover){
+        .not-choosen:hover ~ .not-choosen, .not-choosen:hover, .not-choosen:has(~ .not-choosen:hover){
             cursor: pointer;
             background-color: $info-color;
         }
@@ -177,9 +177,6 @@ footer{
                 font-size: x-large;
             }
         }
-        #login{
-
-        }
         .triangle{
             div{
                 border-top: solid 0px transparent;
@@ -189,11 +186,9 @@ footer{
             }
             
         }
-        #register{
-
-        }
     }
     .log, .reg{
+        display: none;
         width: 1000px;
         background-color: $third-color;
 
@@ -214,16 +209,24 @@ footer{
             font-size: larger;
             color: #000;
             border: 0 solid #fff;
+            padding: 6px;
         }
         input[type="text"]:focus-visible, input[type="password"]:focus-visible{
             outline: 3px solid $show-more-color;
         }
         input[type="button"]{
-            color: #000;
+            font-size: large;
+            font-weight: bold;
+            color: $font-main-color;
+            background-color: $info-color;
+            border: 0 solid $info-color;
+            padding: 5px 15px;
+            margin-top: 10px;
         }
         input[type="button"]:hover{
             cursor: pointer;
-            
+            // border: 3px solid $show-more-color;
+            outline: 3px solid $show-more-color;
         }
         
     }
