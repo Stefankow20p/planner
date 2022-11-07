@@ -119,7 +119,6 @@ main{
                     .name{
                         font-size: 18px;
                         flex-grow: 1;
-                        // text-align: center;
                     }
                 }
             }
@@ -225,7 +224,6 @@ footer{
         }
         input[type="button"]:hover{
             cursor: pointer;
-            // border: 3px solid $show-more-color;
             outline: 3px solid $show-more-color;
         }
         
