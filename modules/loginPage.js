@@ -1,5 +1,5 @@
 const crypto = require('crypto')
-
+const validation = require('./validation.js')
 
 
 function login(app, pool){
@@ -51,7 +51,26 @@ function login(app, pool){
         console.log(req.body)
     
         //data validation
-    
+        if(!req.body.login == undefined || !req.body.password== undefined){
+            return res.json({
+                correct : false,
+                message : "Nieprawidłowe dane logowania"
+               })
+        }
+        let loginData = validation.dataForLoginValidation(req.body.login)
+        let passwordData = validation.dataForLoginValidation(req.body.password)
+        if(!loginData.correct){
+            return res.json({
+                correct : false,
+                message : loginData.message
+               })
+        }
+        if(!passwordData.correct){
+            return res.json({
+                correct : false,
+                message : passwordData.message
+               })
+        }
     
         //gets login data
         pool.query(
