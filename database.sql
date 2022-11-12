@@ -10,7 +10,7 @@ CREATE TABLE Users(
 
 CREATE TABLE Tokens(
     idToken INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    tokenValue INT NOT NULL,
+    tokenValue VARCHAR(256) NOT NULL,
     idUser INT NOT NULL,
     expirationDate DATE NOT NULL,
     expired BOOLEAN NOT NULL,
@@ -102,3 +102,4 @@ CREATE TABLE DiaryDaysYoutube(
 
 
 INSERT INTO users (users.username, users.passwordHash) VALUES ("Testowy username", SHA2('Maria',256));
+INSERT INTO users (users.username, users.passwordHash) VALUES ("admin", SHA2('admin',256));

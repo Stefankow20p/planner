@@ -193,6 +193,13 @@ footer{
 
         padding-top: 50px;
         padding-bottom: 100px;
+        .error-box{
+            display: none;
+            p{
+                padding: 10px 50px;
+                background-color: red;
+            }
+        }
         label{
             display: flex;
             flex-flow: column nowrap;
@@ -242,6 +249,9 @@ footer{
     animation-name: on-register-traingle-flip;
     animation-fill-mode: forwards;
 }
+
+
+
 @keyframes on-login-traingle-flip{
     0%{
 

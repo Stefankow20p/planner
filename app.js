@@ -36,15 +36,12 @@ const pool = mysql.createPool({
     database: 'planner',
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+    multipleStatements: false
 })
 
 
-//test query to compare passwords
-pool.query(
-    'SELECT * FROM users',
-    (err, res) =>{
-        // console.log(res[0].passwordHash.toString('utf-8'))
-        // console.log(crypto.createHash("sha256").update("Maria").digest().toString('hex'))
-    }
-)
+//login and registration
+
+const loginPage = require('./modules/loginPage.js')
+loginPage.login(app, pool)
