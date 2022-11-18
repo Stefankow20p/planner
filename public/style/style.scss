@@ -209,6 +209,31 @@ footer{
             h4{
                 font-size: 1.4em;
             }
+            #reg-log, #reg-pass1, #reg-pass2{
+                position: relative;
+                left: 12.5px;
+            }
+            div{
+                position: relative;
+                .icon-question-mark{
+                    position: relative;
+                    top: 5px;
+                    right: 22.5px;
+                }
+                .tooltip{
+                    padding: 7px;
+                    visibility: hidden;
+                    background-color: #18181fd9;
+                    position: absolute;
+                    bottom: 40px;
+                    left: 50px;
+                    border-radius: 5px;
+                    border: 1px solid $show-more-color;
+                }
+                .icon-question-mark:hover ~ .tooltip{
+                    visibility: visible;
+                }
+            }
         }
 
         input[type="text"], input[type="password"]{

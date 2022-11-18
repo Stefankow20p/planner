@@ -45,3 +45,4 @@ const pool = mysql.createPool({
 
 const loginPage = require('./modules/loginPage.js')
 loginPage.login(app, pool)
+loginPage.register(app, pool)
