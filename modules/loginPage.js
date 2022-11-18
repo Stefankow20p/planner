@@ -218,6 +218,7 @@ function register(app, pool){
                                     message : "Błąd serwera"
                                    })
                             }
+                            
                             console.log(response)
                             //gets user id
                             pool.query(
@@ -225,6 +226,12 @@ function register(app, pool){
                                 (err, response) =>{
                                     if(err){
                                         console.error(err)
+                                        return res.json({
+                                            correct : false,
+                                            message : "Błąd serwera. Rejestracja zakończona pomyślnie, lecz nie udało się zalogować"
+                                           })
+                                    }
+                                    if(response.length!=1){
                                         return res.json({
                                             correct : false,
                                             message : "Błąd serwera. Rejestracja zakończona pomyślnie, lecz nie udało się zalogować"
