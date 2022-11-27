@@ -46,3 +46,9 @@ const pool = mysql.createPool({
 const loginPage = require('./modules/loginPage.js')
 loginPage.login(app, pool)
 loginPage.register(app, pool)
+
+
+//main planner functions
+
+const mainPlanner = require('./modules/mainPlanner.js')
+mainPlanner.sendDays(app, pool)
