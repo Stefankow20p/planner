@@ -28,6 +28,21 @@ header{
     align-items: center;
     background-color: $header;
     width: 100%;
+    .icon{
+        margin: 0 8px;
+        border-radius: 5px;
+        transition: 0.5s;
+    }
+    .icon:hover{
+        transform: scale(115%);
+        transition: 0.5s;
+    }
+    .icon-profile{
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        background-color: $info-color;
+    }
 }
 main{
     display: flex;
@@ -37,7 +52,9 @@ main{
     background-color: $background;
     flex-grow: 1;
     width: 100%;
+    
     .main{
+        
         
         flex-grow: 1;
         align-self: stretch;
@@ -125,6 +142,34 @@ main{
             
             
         }
+    }
+    .dates{
+        flex-flow: column nowrap;
+        align-items: center;
+        label{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            input[type="date"]{
+                margin: 10px;
+                color: #000;
+            }
+            input[type="button"]{
+                font-size: large;
+                font-weight: bold;
+                color: $font-main-color;
+                background-color: $info-color;
+                border: 0 solid $info-color;
+                padding: 5px 15px;
+                margin-top: 10px;
+            }
+            input[type="button"]:hover{
+                cursor: pointer;
+                outline: 3px solid $show-more-color;
+            }
+        }
+        
     }
 }
 
