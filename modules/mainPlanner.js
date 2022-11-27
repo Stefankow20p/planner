@@ -23,7 +23,7 @@ function sendDays(app, pool){
                 let userId = response[0].idUser
                 console.log(userId)
                 pool.query(
-                    `SELECT * FROM diarydays INNER JOIN records ON diarydays.idDay = records.idDay WHERE diarydays.idUser = ${userId} && diarydays.dayDate >= "${req.body.startDate}" && diarydays.dayDate <= "${req.body.endDate}";`,
+                    `SELECT * FROM diarydays LEFT JOIN records ON diarydays.idDay = records.idDay WHERE diarydays.idUser = ${userId} && diarydays.dayDate >= "${req.body.startDate}" && diarydays.dayDate <= "${req.body.endDate}";`,
                     (err, response) =>{
                         if(err){
                             console.error(err)
@@ -92,11 +92,14 @@ function sendDays(app, pool){
                                 if(element.originalID == row.idDay){
                                     for (let i = 0; i < data.days.length; i++) {
                                         if(data.days[i].id == element.newID){
-                                            data.days[i].records.push({
-                                                hour : row.hour,
-                                                title : row.title,
-                                                desc : row.recordDescription
-                                            })
+                                            if(row.hour != null){
+                                                data.days[i].records.push({
+                                                    hour : row.hour,
+                                                    title : row.title,
+                                                    desc : row.recordDescription
+                                                })
+                                            }
+                                            
                                             break
                                         }
                                     }

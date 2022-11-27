@@ -107,7 +107,8 @@ INSERT INTO users (users.username, users.passwordHash) VALUES ("admin", SHA2('ad
 
 INSERT INTO diarydays(idUser,dayDate,dayTitle,dayDescription) VALUES
 (2,"2022-11-26","Ciekawy dzień","Brak opisu na razie"),
-(2,"2022-11-27","!Ciekawy! !dzień!","!Brak! !opisu! !na! !razie!");
+(2,"2022-11-27","!Ciekawy! !dzień!","!Brak! !opisu! !na! !razie!"),
+(2,"2023-01-03","hejka","!Brak! !opisu! !na! !razie!");
 
 INSERT INTO records(hour,title,recordDescription,idDay,recordNotification) VALUES
 ("09.00","Wstawaj",NULL,1, 0),
