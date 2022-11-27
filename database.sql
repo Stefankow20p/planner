@@ -10,7 +10,7 @@ CREATE TABLE Users(
 
 CREATE TABLE Tokens(
     idToken INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    tokenValue VARCHAR(256) NOT NULL,
+    tokenValue VARCHAR(512) NOT NULL,
     idUser INT NOT NULL,
     expirationDate DATE NOT NULL,
     expired BOOLEAN NOT NULL,
@@ -103,3 +103,21 @@ CREATE TABLE DiaryDaysYoutube(
 
 INSERT INTO users (users.username, users.passwordHash) VALUES ("Testowy username", SHA2('Maria',256));
 INSERT INTO users (users.username, users.passwordHash) VALUES ("admin", SHA2('admin',256));
+
+
+INSERT INTO diarydays(idUser,dayDate,title,dayDescription) VALUES
+(2,"2022-11-26","Ciekawy dzień","Brak opisu na razie"),
+(2,"2022-11-27","!Ciekawy! !dzień!","!Brak! !opisu! !na! !razie!");
+
+INSERT INTO records(hour,title,recordDescription,idDay,recordNotification) VALUES
+("09.00","Wstawaj",NULL,1, 0),
+("12.30","Sniadanko",NULL,1, 0),
+("13.00","Do sklepu",NULL,1, 0),
+("13.30","valorant time",NULL,1, 0),
+("23.00","Wyłącz Valo","Taki żart graj dalej",1, 0),
+("06.00","Wstawaj",NULL,2, 0),
+("06.02","Ząbki umyj",NULL,2, 0),
+("07.00","Do szkółki wariaciku",NULL,2, 0);
+
+INSERT INTO records(hour,title,recordDescription,idDay,recordNotification) VALUES
+("16.00","Przerwa na toalete",NULL,1, 0);
