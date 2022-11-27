@@ -1,3 +1,15 @@
+// looks for cookie with login token if it exists removes it
+for (let i = 0; i < document.cookie.split(";").length; i++) {
+    if(document.cookie.split(";")[i].split("=")[0].trim()=="token"){
+        // console.log(document.cookie.split(";")[i].split("=")[1])
+        let expirationDate = new Date("10-12-1990")
+        document.cookie = `token=a; expires=${expirationDate}`
+    }
+}
+
+
+
+
 function turnOnLogin(){
     // console.log(document.querySelector(".triangle-log div"))
     document.querySelectorAll(".not-choosen").forEach(element => {
@@ -66,12 +78,13 @@ async function login()
     }
     const res = await fetch("api/login", options)
     const results = await res.json()
-    console.log(results)
+    // console.log(results)
     if(results.correct){
         //creates cookie with token
         let expirationDate = new Date(results.expirationDate)
-        console.log(expirationDate)
+        // console.log(expirationDate)
         document.cookie = `token=${results.token}; expires=${expirationDate}`
+        window.location = "./index.html"
     }else{
         //displays error
         document.querySelectorAll(".error-box")[0].style.display="flex"
@@ -122,12 +135,13 @@ async function register()
     }
     const res = await fetch("api/register", options)
     const results = await res.json()
-    console.log(results)
+    // console.log(results)
     if(results.correct){
         //creates cookie with token
         let expirationDate = new Date(results.expirationDate)
-        console.log(expirationDate)
+        // console.log(expirationDate)
         document.cookie = `token=${results.token}; expires=${expirationDate}`
+        window.location = "./index.html"
     }else{
         //displays error
         document.querySelectorAll(".error-box")[1].style.display="flex"
@@ -144,13 +158,7 @@ document.querySelector("#reg-btn").addEventListener("click",register)
 
 
 
-// looks for cookie with login token
-// console.log(document.cookie.split("="))
-for (let i = 0; i < document.cookie.split(";").length; i++) {
-    if(document.cookie.split(";")[i].split("=")[0].trim()=="token"){
-        console.log(document.cookie.split(";")[i].split("=")[1])
-    }
-}
+
 // document.cookie = "taaoken=32"
 // console.log(document.cookie)
 

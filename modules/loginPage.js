@@ -51,7 +51,7 @@ function login(app, pool){
         console.log(req.body)
     
         //data validation
-        if(!req.body.login == undefined || !req.body.password== undefined){
+        if(typeof req.body.login === 'undefined' || typeof req.body.password === 'undefined'){
             return res.json({
                 correct : false,
                 message : "Brak danych do logowania"
@@ -153,7 +153,7 @@ function register(app, pool){
         console.log(req.body)
     
         //data validation
-        if(!req.body.login == undefined || !req.body.password1== undefined || !req.body.password2== undefined){
+        if(typeof req.body.login === 'undefined' || typeof req.body.password1 === 'undefined' || typeof req.body.password2 === 'undefined'){
             return res.json({
                 correct : false,
                 message : "Brak danych do rejestracji"
