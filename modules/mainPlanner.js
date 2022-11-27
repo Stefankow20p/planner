@@ -12,6 +12,12 @@ function sendDays(app, pool){
                         message : "Błąd serwera"
                        })
                 }
+                if(response.length==0){
+                    return res.json({
+                        correct : false,
+                        message : "Nieprawidłowe dane logowania"
+                       })
+                }
                 // console.log(response)
                 console.log(response[0].idUser)
                 let userId = response[0].idUser
@@ -26,29 +32,6 @@ function sendDays(app, pool){
                                 message : "Błąd serwera"
                                })
                         }
-                        // console.log(response)
-                        //how it should look like
-                        // let data = {
-                        //     days : [
-                        //                 {
-                        //                     date : "2022-26-11",
-                        //                     title : "Fajny dzionek",
-                        //                     desc : "fajny opis",
-                        //                     records: [
-                        //                         {
-                        //                             hour : "09:00",
-                        //                             title : "Wstanie",
-                        //                             desc : "z fajnego lozka"
-                        //                         },
-                        //                         {
-                        //                             hour : "09:30",
-                        //                             title : "Sniadanie",
-                        //                             desc : "smaczne"
-                        //                         }
-                        //                     ]
-                        //                 }
-                        //             ]
-                        //     }
                         let data = {
                             days : []
                             }
@@ -61,6 +44,8 @@ function sendDays(app, pool){
                                 dayIDs.push(element.idDay)
                                 dayList.push({
                                     originalID : element.idDay,
+                                    title : element.dayTitle,
+                                    desc : element.dayDescription,
                                     date : element.dayDate,
                                     newID : 0
                                 })
@@ -87,9 +72,68 @@ function sendDays(app, pool){
                                 }
                             }
                         }
-                        
-                        
+                        for (let i = 0; i < dayList.length; i++) {
+                            dayList[i].newID = i
+                            
+                        }
+                        // fills the response with data
+                        dayList.forEach(element => {
+                            data.days.push({
+                                id : element.newID,
+                                title : element.title,
+                                desc : element.desc,
+                                date : element.date,
+                                records : []
+                            })
+                        })
+                        console.log(response)
+                        response.forEach(row=>{
+                            dayList.forEach(element => {
+                                if(element.originalID == row.idDay){
+                                    for (let i = 0; i < data.days.length; i++) {
+                                        if(data.days[i].id == element.newID){
+                                            data.days[i].records.push({
+                                                hour : row.hour,
+                                                title : row.title,
+                                                desc : row.recordDescription
+                                            })
+                                            break
+                                        }
+                                    }
+                                }
+                            })
+                        })
+                        //sorts hours
+                        function compareHours(firstHour, secondHour){
+                            //first>second = true
+                            for (let i = 0; i < 5; i++) {
+                                if(i!=2){
+                                    if(parseInt(firstHour[i])<parseInt(secondHour[i])){
+                                        return false
+                                    }else if(parseInt(firstHour[i])>parseInt(secondHour[i])){
+                                        return true
+                                    }
+                                }
+                            }
+                            return false
+                        }
+                        for (let i = 0; i < data.days.length; i++) {
+                            sorted = false
+                            while(!sorted){
+                                sorted = true
+                                for (let j = 0; j < data.days[i].records.length-1; j++) {
+                                    if(compareHours(data.days[i].records[j].hour, data.days[i].records[j+1].hour))
+                                    {
+                                        [data.days[i].records[j], data.days[i].records[j+1]] = [data.days[i].records[j+1], data.days[i].records[j]]
+                                        sorted = false
+                                    }
+                                    
+                                }
+                            }  
+                        }
+
                         res.json({
+                            correct : true,
                             data : data
                         })
                     })

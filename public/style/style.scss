@@ -146,7 +146,15 @@ main{
     .dates{
         flex-flow: column nowrap;
         align-items: center;
+        .error-box{
+            display: none;
+            p{
+                padding: 10px 50px;
+                background-color: red;
+            }
+        }
         label{
+            
             display: flex;
             flex-flow: row nowrap;
             justify-content: center;

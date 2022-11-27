@@ -35,6 +35,11 @@ async function displayData(){
     const res = await fetch("api/getDays", options)
     const results = await res.json()
     console.log(results)
+    document.querySelector(".error-box").style.display = "none"
+    if(!results.correct){
+        document.querySelector(".error-box").style.display = "flex"
+        document.querySelector(".error-box").querySelector("p").innerText = results.message
+    }
 }
 displayData()
 document.querySelector("#start-date").addEventListener("change",displayData)

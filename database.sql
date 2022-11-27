@@ -21,7 +21,7 @@ CREATE TABLE DiaryDays(
     idDay INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUser INT NOT NULL,
     dayDate DATE NOT NULL,
-    title VARCHAR(255) NOT NULL,
+    dayTitle VARCHAR(255) NOT NULL,
     dayDescription TEXT,
     FOREIGN KEY (idUser) REFERENCES Users(idUser)
 );
@@ -105,7 +105,7 @@ INSERT INTO users (users.username, users.passwordHash) VALUES ("Testowy username
 INSERT INTO users (users.username, users.passwordHash) VALUES ("admin", SHA2('admin',256));
 
 
-INSERT INTO diarydays(idUser,dayDate,title,dayDescription) VALUES
+INSERT INTO diarydays(idUser,dayDate,dayTitle,dayDescription) VALUES
 (2,"2022-11-26","Ciekawy dzień","Brak opisu na razie"),
 (2,"2022-11-27","!Ciekawy! !dzień!","!Brak! !opisu! !na! !razie!");
 
