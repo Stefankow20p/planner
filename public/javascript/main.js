@@ -17,7 +17,14 @@ function setCurrentDate(){
     document.querySelector("#end-date").value = date.getFullYear()+"-"+( String(date.getMonth()+1).length == 1 ? ("0"+String(date.getMonth()+1)) : String(date.getMonth()+1) )+"-"+ ( String(date.getDate()).length == 1 ? ("0"+date.getDate()) : date.getDate() ) 
 }
 setCurrentDate()
+//option page event listener
+setTimeout(()=>{
+    document.querySelector(".icon-profile").contentDocument.querySelector("svg").addEventListener("click",()=>{
+        window.location="./options.html"
+    })
+    console.log(document.querySelector(".icon-profile"))
 
+},500)
 
 async function displayData(){
     const data = { 

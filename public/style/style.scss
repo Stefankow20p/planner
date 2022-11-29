@@ -44,6 +44,8 @@ header{
         background-color: $info-color;
     }
 }
+
+
 main{
     display: flex;
     flex-flow: column nowrap;
@@ -143,6 +145,34 @@ main{
             
         }
     }
+    .options{
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        section{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        hr{
+            width: 100%;
+            border: 2px solid $font-main-color;
+            border-radius: 2px;
+        }
+        input[type="button"]{
+            font-size: large;
+            font-weight: bold;
+            color: $font-main-color;
+            background-color: $info-color;
+            border: 0 solid $info-color;
+            padding: 5px 15px;
+            margin-top: 10px;
+        }
+        input[type="button"]:hover{
+            cursor: pointer;
+            outline: 3px solid $show-more-color;
+        }
+    }
     .dates{
         flex-flow: column nowrap;
         align-items: center;
@@ -199,7 +229,9 @@ footer{
     margin: 15px;
     padding: 5px;
     border-radius: 10px;
-
+    .not-choosen{
+        background-color: #25252C;
+    }
     .choice{
         display: flex;
         flex-flow: row nowrap;
@@ -211,7 +243,8 @@ footer{
             background-color: $info-color;
         }
         .choosen{
-            background-color: $third-color;
+            // background-color: $third-color;
+            background-color: #1B1B20;
             
         }
         
@@ -234,7 +267,7 @@ footer{
                 border-top: solid 0px transparent;
                 border-left: solid 0px transparent;
                 border-right: solid 200px transparent;
-                border-bottom: 100px solid $third-color;
+                border-bottom: 100px solid #1B1B20;
             }
             
         }
@@ -314,6 +347,8 @@ footer{
         
     }
 }
+
+
 
 @keyframes on-register-traingle-flip{
     0%{
