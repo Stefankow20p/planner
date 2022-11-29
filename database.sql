@@ -111,14 +111,14 @@ INSERT INTO diarydays(idUser,dayDate,dayTitle,dayDescription) VALUES
 (2,"2023-01-03","hejka","!Brak! !opisu! !na! !razie!");
 
 INSERT INTO records(hour,title,recordDescription,idDay,recordNotification) VALUES
-("09.00","Wstawaj",NULL,1, 0),
-("12.30","Sniadanko",NULL,1, 0),
-("13.00","Do sklepu",NULL,1, 0),
-("13.30","valorant time",NULL,1, 0),
-("23.00","Wyłącz Valo","Taki żart graj dalej",1, 0),
-("06.00","Wstawaj",NULL,2, 0),
-("06.02","Ząbki umyj",NULL,2, 0),
-("07.00","Do szkółki wariaciku",NULL,2, 0);
+("09.00","Pobudka",NULL,1, 0),
+("12.30","Wtań z łóżka",NULL,1, 0),
+("13.00","śniadanie",NULL,1, 0),
+("13.30","Idź do sklepu",NULL,1, 0),
+("23.00","Idź spać","żart graj na kompie dalej",1, 0),
+("06.00","Pobudka",NULL,2, 0),
+("06.02","Zjedz śniadanie",NULL,2, 0),
+("07.00","Idź do szkoły",NULL,2, 0);
 
 INSERT INTO records(hour,title,recordDescription,idDay,recordNotification) VALUES
-("16.00","Przerwa na toalete",NULL,1, 0);
+("16.00","Powrót do domu",NULL,1, 0);
