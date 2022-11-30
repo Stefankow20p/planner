@@ -88,16 +88,12 @@ CREATE TABLE Twitch(
     FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay)
 );
 
-CREATE TABLE Youtube(
-    idFilm INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    link VARCHAR(255) NOT NULL
-);
 
-CREATE TABLE DiaryDaysYoutube(
+CREATE TABLE DaysYoutube(
+    idDaysYoutube INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idDay INT NOT NULL,
-    idFilm INT NOT NULL,
-    FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay),
-    FOREIGN KEY (idFilm) REFERENCES Youtube(idFilm)
+    link VARCHAR(255) NOT NULL,
+    FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay)
 );
 
 

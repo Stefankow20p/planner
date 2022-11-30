@@ -52,3 +52,13 @@ loginPage.register(app, pool)
 
 const mainPlanner = require('./modules/mainPlanner.js')
 mainPlanner.sendDays(app, pool)
+
+
+
+const logOut = require('./modules/logOut.js')
+logOut.logOut(app, pool)
+logOut.logOutAll(app, pool)
+
+
+const youtube = require('./modules/youtube.js')
+youtube.getYoutubeData(app,pool)

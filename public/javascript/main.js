@@ -123,7 +123,28 @@ async function displayData(){
                     
                 }
             }
+            if(dataExists && results.data.days[dayId].youtube.length>0){
+                const record = document.createElement("div")
+                record.classList.add("record")
+                record.classList.add("list")
+                const thing = document.createElement("p")
+                thing.classList.add("name")
+                thing.innerText = "Obejrzane filmy:"
+                record.append(thing)
+                
 
+                
+                for (let j = 0; j < results.data.days[dayId].youtube.length; j++) {
+                    const thing = document.createElement("a")
+                    thing.classList.add("name")
+                    thing.href = results.data.days[dayId].youtube[j]
+                    thing.innerText = results.data.days[dayId].youtube[j]
+                    record.append(thing)
+                    
+                }
+                records.append(record)
+            }
+            
             day.append(records)
             main.append(day)
         }

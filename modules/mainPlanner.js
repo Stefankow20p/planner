@@ -3,7 +3,7 @@ function sendDays(app, pool){
         //ADD DATA VALIDATION HERE
         // console.log(req.body)
         pool.query(
-            `SELECT * FROM tokens WHERE tokens.tokenValue = "${req.body.token}";`,
+            `SELECT * FROM tokens WHERE tokens.tokenValue = "${req.body.token}" && tokens.expired = 0;`,
             (err, response) =>{
                 if(err){
                     console.error(err)
@@ -83,7 +83,8 @@ function sendDays(app, pool){
                                 title : element.title,
                                 desc : element.desc,
                                 date : element.date,
-                                records : []
+                                records : [],
+                                youtube : []
                             })
                         })
                         console.log(response)
@@ -134,11 +135,33 @@ function sendDays(app, pool){
                                 }
                             }  
                         }
-
-                        res.json({
-                            correct : true,
-                            data : data
-                        })
+                        pool.query(
+                            `SELECT * FROM diarydays INNER JOIN daysyoutube ON diarydays.idDay = daysyoutube.idDay WHERE diarydays.idUser = ${userId} && diarydays.dayDate >= "${req.body.startDate}" && diarydays.dayDate <= "${req.body.endDate}";`,
+                            (err, response) =>{
+                                if(err){
+                                    console.error(err)
+                                    return res.json({
+                                        correct : false,
+                                        message : "Błąd serwera"
+                                       })
+                                }
+                                console.log(response)
+                                for (let i = 0; i < response.length; i++) {
+                                    for (let j = 0; j < data.days.length; j++) {
+                                        console.log(data.days[j].date==response[i].dayDate)
+                                        if(String(data.days[j].date) == String(response[i].dayDate)){
+                                            data.days[j].youtube.push(response[i].link)
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                res.json({
+                                    correct : true,
+                                    data : data
+                                })
+                            })
+                        
                     })
             })
     })

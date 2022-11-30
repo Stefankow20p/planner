@@ -140,6 +140,10 @@ main{
                         flex-grow: 1;
                     }
                 }
+                .list{
+                    flex-flow: column nowrap;
+                    height: fit-content;
+                }
             }
             
             
