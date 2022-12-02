@@ -52,6 +52,7 @@ loginPage.register(app, pool)
 
 const mainPlanner = require('./modules/mainPlanner.js')
 mainPlanner.sendDays(app, pool)
+mainPlanner.updateDays(app, pool)
 
 
 

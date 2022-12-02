@@ -167,4 +167,24 @@ function sendDays(app, pool){
     })
 }
 
+function updateDays(app, pool){
+    app.post("/api/updateDays", (req, res) =>{
+        //ADD DATA VALIDATION HERE
+        // console.log(req.body)
+        pool.query(
+            ``,
+            (err, response) =>{
+                if(err){
+                    console.error(err)
+                    return res.json({
+                        correct : false,
+                        message : "Błąd serwera"
+                       })
+                }
+            }
+        )
+    })
+}
+
+module.exports.updateDays = updateDays
 module.exports.sendDays = sendDays
