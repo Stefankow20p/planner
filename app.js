@@ -33,6 +33,7 @@ app.use(express.urlencoded({ extended: false }))
 const pool = mysql.createPool({
     host: process.env.HOST || 'localhost',
     user: process.env.USER || 'root',
+    password : process.env.PASSWORD || '',
     database: process.env.DATABASE || 'planner',
     waitForConnections: true,
     connectionLimit: 10,
