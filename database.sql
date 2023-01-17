@@ -2,31 +2,31 @@ DROP DATABASE if EXISTS planner;
 CREATE DATABASE planner;
 use planner;
 
-CREATE TABLE Users(
+CREATE TABLE users(
     idUser INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     passwordHash BINARY(64) NOT NULL
 );
 
-CREATE TABLE Tokens(
+CREATE TABLE tokens(
     idToken INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     tokenValue VARCHAR(512) NOT NULL,
     idUser INT NOT NULL,
     expirationDate DATE NOT NULL,
     expired BOOLEAN NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES Users(idUser)
+    FOREIGN KEY (idUser) REFERENCES users(idUser)
 );
 
-CREATE TABLE DiaryDays(
+CREATE TABLE diarydays(
     idDay INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUser INT NOT NULL,
     dayDate DATE NOT NULL,
     dayTitle VARCHAR(255) NOT NULL,
     dayDescription TEXT,
-    FOREIGN KEY (idUser) REFERENCES Users(idUser)
+    FOREIGN KEY (idUser) REFERENCES users(idUser)
 );
 
-CREATE TABLE Icons(
+CREATE TABLE icons(
     idIcon int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUser INT NOT NULL,
     iconName TEXT NOT NULL,
@@ -34,28 +34,28 @@ CREATE TABLE Icons(
     checked BOOLEAN NOT NULL,
     icon TEXT NOT NULL,
     deleted BOOLEAN NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES Users(idUser)
+    FOREIGN KEY (idUser) REFERENCES users(idUser)
 );
 
-CREATE TABLE Favourites(
+CREATE TABLE favourites(
     idUser INT NOT NULL,
     idIcon INT NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES Users(idUser),
-    FOREIGN KEY (idIcon) REFERENCES Icons(idIcon)
+    FOREIGN KEY (idUser) REFERENCES users(idUser),
+    FOREIGN KEY (idIcon) REFERENCES icons(idIcon)
 );
 
-CREATE TABLE RecordSets(
+CREATE TABLE recordsets(
     idSet INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUser INT NOT NULL,
     title TEXT NOT NULL,
     setsDescription TEXT,
     hour VARCHAR(5) NOT NULL,
     idIcon INT NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES Users(idUser),
-    FOREIGN KEY (idIcon) REFERENCES Icons(idIcon)
+    FOREIGN KEY (idUser) REFERENCES users(idUser),
+    FOREIGN KEY (idIcon) REFERENCES icons(idIcon)
 );
 
-CREATE TABLE Records(
+CREATE TABLE records(
     idRecord INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     hour VARCHAR(5) NOT NULL,
     title VARCHAR(255) NOT NULL,
@@ -63,37 +63,37 @@ CREATE TABLE Records(
     idIcon INT,
     idDay INT NOT NULL,
     recordNotification BOOLEAN NOT NULL,
-    FOREIGN KEY (idIcon) REFERENCES Icons(idIcon),
-    FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay)
+    FOREIGN KEY (idIcon) REFERENCES icons(idIcon),
+    FOREIGN KEY (idDay) REFERENCES diarydays(idDay)
 );
 
-CREATE TABLE Places(
+CREATE TABLE places(
     idPlace INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     country VARCHAR(255) NOT NULL,
     placeName TEXT NOT NULL
 );
 
-CREATE TABLE DiaryDaysPlaces(
+CREATE TABLE diarydaysplaces(
     idDay INT NOT NULL,
     idPlace INT NOT NULL,
-    FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay),
-    FOREIGN KEY (idPlace) REFERENCES Places(idPlace)
+    FOREIGN KEY (idDay) REFERENCES diarydays(idDay),
+    FOREIGN KEY (idPlace) REFERENCES places(idPlace)
 );
 
-CREATE TABLE Twitch(
+CREATE TABLE twitch(
     idSession INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idDay INT NOT NULL,
     link VARCHAR(255) NOT NULL,
     sessionTime TIME NOT NULL,
-    FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay)
+    FOREIGN KEY (idDay) REFERENCES diarydays(idDay)
 );
 
 
-CREATE TABLE DaysYoutube(
+CREATE TABLE daysyoutube(
     idDaysYoutube INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idDay INT NOT NULL,
     link VARCHAR(255) NOT NULL,
-    FOREIGN KEY (idDay) REFERENCES DiaryDays(idDay)
+    FOREIGN KEY (idDay) REFERENCES diarydays(idDay)
 );
 
 
