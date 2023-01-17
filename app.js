@@ -31,9 +31,9 @@ app.use(express.urlencoded({ extended: false }))
 
 //database pool
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    database: 'planner',
+    host: process.env.HOST || 'localhost',
+    user: process.env.USER || 'root',
+    database: process.env.DATABASE || 'planner',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,

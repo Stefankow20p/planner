@@ -1,7 +1,7 @@
 {
   "name": "planner",
   "version": "1.0.0",
-  "description": "- [ ] rejestracja\r - [ ] logowanie\r - [ ] przechowywania danych logowania w unikalnych, generowanych tokenach w plikach cookies\r - [ ] dodawania aktywności do dni\r   - [ ] ikony\r   - [ ] kolorowanie \r - [ ] podaktywności\r - [ ] tworzenie presetów\r - [ ] tworzenie ulubionych kolorów",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
