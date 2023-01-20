@@ -150,7 +150,7 @@ function register(app, pool){
     app.post("/api/register", (req, res) => {
         console.log("------------")
         console.log("Registration request")
-        console.log(req.body)
+        // console.log(req.body)
     
         //data validation
         if(typeof req.body.login === 'undefined' || typeof req.body.password1 === 'undefined' || typeof req.body.password2 === 'undefined'){

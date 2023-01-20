@@ -37,7 +37,7 @@ function getYoutubeData(app, pool){
                 let today = date.getFullYear()+"-"+( String(date.getMonth()+1).length == 1 ? ("0"+String(date.getMonth()+1)) : String(date.getMonth()+1) )+"-"+( String(date.getDate()).length == 1 ? ("0"+date.getDate()) : date.getDate() ) 
                 pool.query(
                     `INSERT INTO diarydays(idUser,dayDate,dayTitle,dayDescription) 
-                    SELECT * FROM (SELECT ${userId} AS idUser, '${today}' AS dayDate,'Nic tu nie ma' AS dayTitle,NULL AS dayDescription) AS temp
+                    SELECT * FROM (SELECT ${userId} AS idUser, '${today}' AS dayDate,'' AS dayTitle,NULL AS dayDescription) AS temp
                     WHERE NOT EXISTS (
                                         SELECT * FROM diarydays 
                                        WHERE idUser = ${userId}

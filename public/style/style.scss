@@ -118,13 +118,13 @@ main{
                 flex-flow: column nowrap;
                 justify-content: flex-start;
                 align-items: center;
-                .record:nth-child(2n+0){
+                .record:nth-child(2n+0), .record-desc:nth-child(2n+0){
                     background-color: $third-color;
                 }
-                .record:nth-child(2n+1){
+                .record:nth-child(2n+1), .record-desc:nth-child(2n+1){
                     background-color: $second-color;
                 }
-                .record{
+                .record, .record-desc{
                     height: 70px;
                     width: 100%;
                     display: flex;
@@ -143,6 +143,9 @@ main{
                 .list{
                     flex-flow: column nowrap;
                     height: fit-content;
+                    .film-link{
+                        font-size: small;
+                    }
                 }
             }
             

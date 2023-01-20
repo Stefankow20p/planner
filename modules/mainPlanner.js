@@ -19,7 +19,6 @@ function sendDays(app, pool){
                        })
                 }
                 // console.log(response)
-                console.log(response[0].idUser)
                 let userId = response[0].idUser
                 console.log(userId)
                 pool.query(
@@ -167,24 +166,33 @@ function sendDays(app, pool){
     })
 }
 
-function updateDays(app, pool){
-    app.post("/api/updateDays", (req, res) =>{
+function createDay(app, pool){
+    app.post("/api/createDay", (req, res) =>{
         //ADD DATA VALIDATION HERE
-        // console.log(req.body)
+        //checks user id
         pool.query(
-            ``,
+            `SELECT * FROM tokens WHERE tokens.tokenValue = "${req.body.token}" && tokens.expired = 0;`,
             (err, response) =>{
                 if(err){
                     console.error(err)
                     return res.json({
                         correct : false,
-                        message : "Błąd serwera"
+                        message : "Błąd serwera. Dane mogły nie zostać zapisane. Proszę odświeżyć stronę."
                        })
                 }
+                if(response.length==0){
+                    return res.json({
+                        correct : false,
+                        message : "Nieprawidłowe dane logowania"
+                       })
+                }
+                // console.log(response)
+                let userId = response[0].idUser
+                console.log(userId)
             }
         )
     })
 }
 
-module.exports.updateDays = updateDays
 module.exports.sendDays = sendDays
+module.exports.createDay = createDay
